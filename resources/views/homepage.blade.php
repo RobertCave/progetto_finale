@@ -18,160 +18,39 @@
                 <div class="right">
                     <h4>Ultimi arrivi:</h4>
                 </div>
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top"
-                                height="500" preserveAspectRatio="xMidYMid slice" role="img" width="100%"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <title>TITOLO</title>
-                                <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%"
-                                    fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                            <div class="card-body">
-                                <h5>Titolo del libro</h5>
-                                <p class="card-text">
-                                    Autore: nome e cognome
-                                </p>
-                                <p><i>Piccola descrizione della storia del libro. This is a wider card with supporting
-                                        text below as a natural lead-in to additional content. This content is a little
-                                        bit longer</i></p>
-                                <p><small>Genere: Libri gialli </small></p>
-                                <button type="button" class="btn btn-sm btn-success">Leggi tutto</button>
+                   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-3">
+                    @forelse ($latestBooks as $book)
+                        <div class="col">
+                            <div class="card shadow-sm h-100">
+                                <a href="#">
+                                    {{-- Se l'immagine di copertina esiste, la mostra, altrimenti un placeholder --}}
+                                    <img src="{{ $book->cover_image ? asset('storage/' . $book->cover_image) : 'https://via.placeholder.com/400x500?text=Copertina' }}"
+                                        class="card-img-top" alt="Copertina di {{ $book->title }}"
+                                        style="height: 400px; object-fit: cover;">
+                                </a>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">{{ $book->title }}</h5>
+                                    <p class="card-text">
+                                        <strong>Autore:</strong> {{ $book->author }}
+                                    </p>
+                                    <p class="card-text">
+                                        <i>{{ Str::limit($book->description, 120) }}</i>
+                                    </p>
+                                    <div class="mt-auto">
+                                        @if ($book->category)
+                                            <p class="mb-2"><small>Genere: {{ $book->category->name }}</small></p>
+                                        @endif
+                                        <a href="#" class="btn btn-sm btn-success">Leggi tutto</a>
+                                         <a href="#" class="btn btn-sm btn-secondary">Aggiungi al carrello</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    {{-- ---------------- --}}
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top"
-                                height="500" preserveAspectRatio="xMidYMid slice" role="img" width="100%"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <title>TITOLO</title>
-                                <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%"
-                                    fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                            <div class="card-body">
-                                <h5>Titolo del libro</h5>
-                                <p class="card-text">
-                                    Autore: nome e cognome
-                                </p>
-                                <p><i>Piccola descrizione della storia del libro. This is a wider card with supporting
-                                        text below as a natural lead-in to additional content. This content is a little
-                                        bit longer
-                                    </i>
-                                </p>
-                                <p><small>Genere: Libri gialli </small></p>
-                                <button type="button" class="btn btn-sm btn-success">Leggi tutto</button>
-                            </div>
+                    @empty
+                        <div class="col-12">
+                            <p class="text-center">Nessun libro disponibile al momento.</p>
                         </div>
-                    </div>
-
-                    {{-- ---------------- --}}
-
-
-
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top"
-                                height="500" preserveAspectRatio="xMidYMid slice" role="img" width="100%"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <title>TITOLO</title>
-                                <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%"
-                                    fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                            <div class="card-body">
-                                <h5>Titolo del libro</h5>
-                                <p class="card-text">
-                                    Autore: nome e cognome
-                                </p>
-                                <p><i>Piccola descrizione della storia del libro. This is a wider card with supporting
-                                        text below as a natural lead-in to additional content. This content is a little
-                                        bit longer</i></p>
-                                <p><small>Genere: Libri gialli </small></p>
-                                <button type="button" class="btn btn-sm btn-success">Leggi tutto</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- ---------------- --}}
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top"
-                                height="500" preserveAspectRatio="xMidYMid slice" role="img" width="100%"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <title>TITOLO</title>
-                                <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%"
-                                    fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                            <div class="card-body">
-                                <h5>Titolo del libro</h5>
-                                <p class="card-text">
-                                    Autore: nome e cognome
-                                </p>
-                                <p><i>Piccola descrizione della storia del libro. This is a wider card with supporting
-                                        text below as a natural lead-in to additional content. This content is a little
-                                        bit longer</i></p>
-                                <p><small>Genere: Libri gialli </small></p>
-                                <button type="button" class="btn btn-sm btn-success">Leggi tutto</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- ---------------- --}}
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top"
-                                height="500" preserveAspectRatio="xMidYMid slice" role="img" width="100%"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <title>TITOLO</title>
-                                <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%"
-                                    fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                            <div class="card-body">
-                                <h5>Titolo del libro</h5>
-                                <p class="card-text">
-                                    Autore: nome e cognome
-                                </p>
-                                <p><i>Piccola descrizione della storia del libro. This is a wider card with supporting
-                                        text below as a natural lead-in to additional content. This content is a little
-                                        bit longer</i></p>
-                                <p><small>Genere: Libri gialli </small></p>
-                                <button type="button" class="btn btn-sm btn-success">Leggi tutto</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- ---------------- --}}
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top"
-                                height="500" preserveAspectRatio="xMidYMid slice" role="img" width="100%"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <title>TITOLO</title>
-                                <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%"
-                                    fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                            <div class="card-body">
-                                <h5>Titolo del libro</h5>
-                                <p class="card-text">
-                                    Autore: nome e cognome
-                                </p>
-                                <p><i>Piccola descrizione della storia del libro. This is a wider card with supporting
-                                        text below as a natural lead-in to additional content. This content is a little
-                                        bit longer</i></p>
-                                <p><small>Genere: Libri gialli </small></p>
-                                <button type="button" class="btn btn-sm btn-success">Leggi tutto</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- ---------------- --}}
-
-
+                    @endforelse
                 </div>
             </div>
         </div>

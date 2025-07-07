@@ -1,6 +1,5 @@
 <x-layout-clean>
 
-
     <x-header-dash />
 
     <div class="container-fluid">
@@ -9,9 +8,7 @@
             <x-dashboard-menu />
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-
-                    <h2>Clienti</h2>
-
+                <livewire:list-book-form />
             </main>
         </div>
     </div>
