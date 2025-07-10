@@ -9,9 +9,7 @@
             <x-dashboard-menu />
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-
-                    <h2>Clienti</h2>
-
+                <livewire:list-users />
             </main>
         </div>
     </div>

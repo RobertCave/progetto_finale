@@ -50,6 +50,46 @@
                 </div>
                 
                 <div class="mb-3">
+                    <label for="address" class="form-label">Indirizzo</label>
+                    <input 
+                        type="text" 
+                        name="address" 
+                        id="address" 
+                        class="form-control @error('address') is-invalid @enderror"
+                        value="{{ old('address') }}"
+                        required
+                        autocomplete="street-address">
+                    @error('address')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="row">
+                    <div class="col-md-7 mb-3">
+                        <label for="city" class="form-label">Città</label>
+                        <input type="text" name="city" id="city" class="form-control @error('city') is-invalid @enderror" value="{{ old('city') }}" required autocomplete="address-level2">
+                        @error('city')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="col-md-5 mb-3">
+                        <label for="postalcode" class="form-label">Codice Postale</label>
+                        <input type="text" name="postalcode" id="postalcode" class="form-control @error('postalcode') is-invalid @enderror" value="{{ old('postalcode') }}" required autocomplete="postal-code">
+                        @error('postalcode')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="country" class="form-label">Paese</label>
+                    <input type="text" name="country" id="country" class="form-control @error('country') is-invalid @enderror" value="{{ old('country') }}" required autocomplete="country-name">
+                    @error('country')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input 
                         type="password" 

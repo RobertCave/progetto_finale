@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
 class DashboardUser extends Controller
 {
@@ -31,4 +33,5 @@ class DashboardUser extends Controller
   {
     return view('dashboard.customers');
   }
+
 }

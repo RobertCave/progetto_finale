@@ -13,17 +13,16 @@ Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
 //Dashboard
 
-Route::get('/dashboard',[DashboardUser::class, 'dashboard'])->name('dashboard'); 
-Route::get('/dashboard/orders',[DashboardUser::class, 'dashboard_orders'])->name('dashboard_orders'); 
-Route::get('/dashboard/products',[DashboardUser::class, 'dashboard_products'])->name('dashboard_products'); 
-Route::get('/dashboard/customers',[DashboardUser::class, 'dashboard_customers'])->name('dashboard_customers'); 
-
-
+Route::controller(DashboardUser::class)->prefix('dashboard')->group(function () {
+    Route::get('/', 'dashboard')->name('dashboard');
+    Route::get('/orders', 'dashboard_orders')->name('dashboard_orders');
+    Route::get('/products', 'dashboard_products')->name('dashboard_products');
+    Route::get('/customers', 'dashboard_customers')->name('dashboard_customers');
+});
 
 // --------Books - Books - Booooooooksssss ;-)
 
-// Crea prodotto-libro
-Route::get('/dashboard/books/create', [BookController::class, 'create'])->name('dashboard.books.create');
-
-// Elenco prodotti
-Route::get('/dashboard/books/list', [BookController::class, 'list'])->name('dashboard.books.list');
+Route::controller(BookController::class)->prefix('dashboard/books')->name('dashboard.books.')->group(function () {
+    Route::get('/create', 'create')->name('create'); // route('dashboard.books.create')
+    Route::get('/list', 'list')->name('list');       // route('dashboard.books.list')
+});
