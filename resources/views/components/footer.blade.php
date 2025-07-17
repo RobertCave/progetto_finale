@@ -6,11 +6,10 @@
                     <use xlink:href="#bootstrap"></use>
                 </svg> </a>
             <ul class="nav col-md-4 justify-content-end ">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+                <li class="nav-item"><a href="{{ route('homepage') }}" class="nav-link px-2 text-body-secondary">Home</a></li>
+                <li class="nav-item"><a href="{{ route('shop') }}" class="nav-link px-2 text-body-secondary">Shop</a></li>
+                <li class="nav-item"><a href="{{ route('faq') }}" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+                <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link px-2 text-body-secondary">Contattaci</a></li>
             </ul>
         </footer>
     </div>

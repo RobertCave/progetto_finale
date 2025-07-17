@@ -89,7 +89,8 @@
                         
                         <div class="mb-3">
                             <label for="editCoverImage" class="form-label">Nuova Copertina (opzionale)</label>
-                            <input type="file" class="form-control @error('editCoverImage') is-invalid @enderror" 
+                            <input type="file" class="form-control 
+                            @error('editCoverImage') is-invalid @enderror" 
                                    id="editCoverImage" wire:model="editCoverImage" accept="image/*">
                             @error('editCoverImage')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -99,10 +100,10 @@
                         
                         <div class="d-flex gap-2">
                             <button type="submit" class="btn btn-success">
-                                <i class="fas fa-save"></i> Salva Modifiche
+                                <i class="bi bi-floppy"></i> Salva Modifiche
                             </button>
                             <button type="button" class="btn btn-secondary" wire:click="cancelEdit">
-                                <i class="fas fa-times"></i> Annulla
+                                <i class="bi bi-x-square"></i> Annulla
                             </button>
                         </div>
                     </form>
@@ -126,7 +127,7 @@
                     @forelse($books as $book)
                         <tr>
                             <td>
-                                <img src="{{ $book->cover_image ? asset('storage/' . $book->cover_image) : 'https://via.placeholder.com/50x75?text=N/A' }}"
+                                <img src="{{ $book->cover_image ? asset('storage/' . $book->cover_image) : 'https://placehold.co/400' }}"
                                     alt="Copertina libro" style="width: 50px; height: auto; object-fit: cover;">
                             </td>
                             <td>{{ $book->title }}</td>

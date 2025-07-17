@@ -24,6 +24,7 @@ class CreateBookForm extends Component
         'category_id' => 'required|exists:categories,id',
         'isbn' => 'required|numeric|min:10',
         'price' => 'required|numeric|min:0',
+        // 'cover_image' => 'required|image|max:10248', // Limite di 1MB
         'cover_image' => 'required|image|max:2048',
     ];
 

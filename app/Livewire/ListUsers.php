@@ -16,6 +16,7 @@ class ListUsers extends Component
     public function deleteUser($userId)
     {
         // Impedisce all'utente di eliminare se stesso
+        // MAledizione
         if ($userId == auth()->id()) {
             session()->flash('error', 'Non puoi eliminare il tuo stesso account.');
             return;

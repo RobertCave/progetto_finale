@@ -22,9 +22,9 @@
                     @forelse ($latestBooks as $book)
                         <div class="col">
                             <div class="card shadow-sm h-100">
-                                <a href="#">
+                                <a href="{{ route('book.details', $book->id) }}">
                                     {{-- Se l'immagine di copertina esiste, la mostra, altrimenti un placeholder --}}
-                                    <img src="{{ $book->cover_image ? asset('storage/' . $book->cover_image) : 'https://via.placeholder.com/400x500?text=Copertina' }}"
+                                    <img src="{{ $book->cover_image ? asset('storage/' . $book->cover_image) : 'https://placehold.co/400' }}"
                                         class="card-img-top" alt="Copertina di {{ $book->title }}"
                                         style="height: 400px; object-fit: cover;">
                                 </a>
@@ -34,14 +34,22 @@
                                         <strong>Autore:</strong> {{ $book->author }}
                                     </p>
                                     <p class="card-text">
+                                        {{-- Limitiamo la descrizione a 120 caratteri per mantenere il layout pulito. --}}
+                                         
                                         <i>{{ Str::limit($book->description, 120) }}</i>
                                     </p>
                                     <div class="mt-auto">
                                         @if ($book->category)
                                             <p class="mb-2"><small>Genere: {{ $book->category->name }}</small></p>
                                         @endif
-                                        <a href="#" class="btn btn-sm btn-success">Leggi tutto</a>
-                                         <a href="#" class="btn btn-sm btn-secondary">Aggiungi al carrello</a>
+                                        <p class="mb-2"><strong>Prezzo: €{{ number_format($book->price, 2, ',', '.') }}</strong></p>
+                                        <div class="d-flex gap-2">
+                                            <div><a href="{{ route('book.details', $book->id) }}" class="btn btn-sm btn-success">Dettagli</a></div>
+                                            {{-- Pulsanti per aggiungere al carrello e visualizzare i dettagli --}}
+                                            <div>@livewire('add-to-cart', ['bookId' => $book->id], key($book->id))</div>
+                                            
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>

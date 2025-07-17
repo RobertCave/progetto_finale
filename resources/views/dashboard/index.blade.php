@@ -10,135 +10,46 @@
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
-
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h2>Dashboard per l'amministratore</h2>
-                    <div class="table-responsive small">
-                        <table class="table table-striped table-sm">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Header</th>
-                                    <th scope="col">Header</th>
-                                    <th scope="col">Header</th>
-                                    <th scope="col">Header</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1,001</td>
-                                    <td>random</td>
-                                    <td>data</td>
-                                    <td>placeholder</td>
-                                    <td>text</td>
-                                </tr>
-                                <tr>
-                                    <td>1,002</td>
-                                    <td>placeholder</td>
-                                    <td>irrelevant</td>
-                                    <td>visual</td>
-                                    <td>layout</td>
-                                </tr>
-                                <tr>
-                                    <td>1,003</td>
-                                    <td>data</td>
-                                    <td>rich</td>
-                                    <td>dashboard</td>
-                                    <td>tabular</td>
-                                </tr>
-                                <tr>
-                                    <td>1,003</td>
-                                    <td>information</td>
-                                    <td>placeholder</td>
-                                    <td>illustrative</td>
-                                    <td>data</td>
-                                </tr>
-                                <tr>
-                                    <td>1,004</td>
-                                    <td>text</td>
-                                    <td>random</td>
-                                    <td>layout</td>
-                                    <td>dashboard</td>
-                                </tr>
-                                <tr>
-                                    <td>1,005</td>
-                                    <td>dashboard</td>
-                                    <td>irrelevant</td>
-                                    <td>text</td>
-                                    <td>placeholder</td>
-                                </tr>
-                                <tr>
-                                    <td>1,006</td>
-                                    <td>dashboard</td>
-                                    <td>illustrative</td>
-                                    <td>rich</td>
-                                    <td>data</td>
-                                </tr>
-                                <tr>
-                                    <td>1,007</td>
-                                    <td>placeholder</td>
-                                    <td>tabular</td>
-                                    <td>information</td>
-                                    <td>irrelevant</td>
-                                </tr>
-                                <tr>
-                                    <td>1,008</td>
-                                    <td>random</td>
-                                    <td>data</td>
-                                    <td>placeholder</td>
-                                    <td>text</td>
-                                </tr>
-                                <tr>
-                                    <td>1,009</td>
-                                    <td>placeholder</td>
-                                    <td>irrelevant</td>
-                                    <td>visual</td>
-                                    <td>layout</td>
-                                </tr>
-                                <tr>
-                                    <td>1,010</td>
-                                    <td>data</td>
-                                    <td>rich</td>
-                                    <td>dashboard</td>
-                                    <td>tabular</td>
-                                </tr>
-                                <tr>
-                                    <td>1,011</td>
-                                    <td>information</td>
-                                    <td>placeholder</td>
-                                    <td>illustrative</td>
-                                    <td>data</td>
-                                </tr>
-                                <tr>
-                                    <td>1,012</td>
-                                    <td>text</td>
-                                    <td>placeholder</td>
-                                    <td>layout</td>
-                                    <td>dashboard</td>
-                                </tr>
-                                <tr>
-                                    <td>1,013</td>
-                                    <td>dashboard</td>
-                                    <td>irrelevant</td>
-                                    <td>text</td>
-                                    <td>visual</td>
-                                </tr>
-                                <tr>
-                                    <td>1,014</td>
-                                    <td>dashboard</td>
-                                    <td>illustrative</td>
-                                    <td>rich</td>
-                                    <td>data</td>
-                                </tr>
-                                <tr>
-                                    <td>1,015</td>
-                                    <td>random</td>
-                                    <td>tabular</td>
-                                    <td>information</td>
-                                    <td>text</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                </div>
+
+                <!-- Grandi pulsanti di navigazione -->
+                <div class="row g-4 mb-4">
+                    <div class="col-md-4">
+                        <a href="{{ route('dashboard_orders') }}" class="btn btn-primary btn-lg w-100 h-100 d-flex flex-column align-items-center justify-content-center text-decoration-none" style="min-height: 150px;">
+                            <i class="bi bi-table fs-1 mb-3"></i>
+                            <h4 class="mb-0">Ordini</h4>
+                            <small class="text-light">Gestisci tutti gli ordini</small>
+                        </a>
                     </div>
+                    <div class="col-md-4">
+                        <a href="{{ route('dashboard_customers') }}" class="btn btn-success btn-lg w-100 h-100 d-flex flex-column align-items-center justify-content-center text-decoration-none" style="min-height: 150px;">
+                            <i class="bi bi-people fs-1 mb-3"></i>
+                            <h4 class="mb-0">Utenti</h4>
+                            <small class="text-light">Gestisci i clienti</small>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="{{ route('dashboard.books.list') }}" class="btn btn-warning btn-lg w-100 h-100 d-flex flex-column align-items-center justify-content-center text-decoration-none" style="min-height: 150px;">
+                            <i class="bi bi-journal-richtext fs-1 mb-3"></i>
+                            <h4 class="mb-0">Prodotti</h4>
+                            <small class="text-dark">Gestisci i prodotti</small>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- collegamenti rapidi -->
+                <div class="row g-4">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Benvenuto nella Dashboard</h5>
+                                <p class="card-text">Utilizza i pulsanti sopra per navigare rapidamente alle sezioni principali della dashboard amministrativa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </main>
         </div>

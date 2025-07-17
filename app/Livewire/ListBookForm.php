@@ -51,7 +51,7 @@ class ListBookForm extends Component
             $this->editCategoryId = $book->category_id;
             $this->editIsbn = $book->isbn;
             $this->editPrice = $book->price;
-            $this->editCoverImage = null; // Reset file input
+            $this->editCoverImage = null; // Reset  
         }
     }
 
@@ -78,6 +78,8 @@ class ListBookForm extends Component
                 }
                 
                 // Salva la nuova immagine
+                // che palle sto debug
+                // $updateData['cover_image'] = editCoverImage->store('covers', 'public');
                 $updateData['cover_image'] = $this->editCoverImage->store('covers', 'public');
             }
 
